@@ -27,7 +27,6 @@ import { Link } from "react-router-dom";
 function ResponsiveAppBar() {
   // theme
   const theme = useTheme();
-  
 
   // redux dark mode
   const dispatch = useDispatch();
@@ -63,7 +62,7 @@ function ResponsiveAppBar() {
     setAnchorElMMS(null);
   };
   return (
-    <AppBar position="fixed" mb={5}>
+    <AppBar position="fixed" sx={{ height: "70px", top: "0" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* the menu icon  */}
@@ -85,7 +84,9 @@ function ResponsiveAppBar() {
               open={openMMS}
               onClose={handlCloseMMS}
             >
-              <MenuItem onClick={handlCloseMMS}><Link to="/"> Home</Link></MenuItem>
+              <MenuItem onClick={handlCloseMMS}>
+                <Link to="/"> Home</Link>
+              </MenuItem>
               <Divider />
               <Box>
                 <MenuItem
@@ -93,6 +94,7 @@ function ResponsiveAppBar() {
                   aria-controls="SMS"
                   aria-haspopup="true"
                   aria-expanded={openSMS}
+                  sx={{ fontWeight: "bold" }}
                 >
                   Services <ArrowRightIcon />
                 </MenuItem>
@@ -108,20 +110,32 @@ function ResponsiveAppBar() {
                   horizontal: "right",
                 }}
               >
-                <MenuItem onClick={handleCloseSMS}><Link to="/consulting">consulting</Link></MenuItem>
-                <Divider />
                 <MenuItem onClick={handleCloseSMS}>
-                  Initial diagnoises and treatment
+                  <Link to="/consulting">consulting</Link>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleCloseSMS}>Treatment</MenuItem>
+                <MenuItem onClick={handleCloseSMS}>
+                  <Link to="/initiahdignoisisandtreatment">
+                    Initial diagnoises and treatment
+                  </Link>
+                </MenuItem>
+                <Divider />
+                <MenuItem onClick={handleCloseSMS}>
+                  <Link to="/treatment">Treatment</Link>
+                </MenuItem>
               </Menu>
 
-              <MenuItem onClick={handlCloseMMS}>Privacy & Politics</MenuItem>
+              <MenuItem onClick={handlCloseMMS}>
+                <Link to="/politics&privacy">Privacy & Politics</Link>
+              </MenuItem>
               <Divider />
-              <MenuItem onClick={handlCloseMMS}>FAQ</MenuItem>
+              <MenuItem onClick={handlCloseMMS}>
+                <Link to="/faq">FAQ</Link>
+              </MenuItem>
               <Divider />
-              <MenuItem onClick={handlCloseMMS}>Contact Us</MenuItem>
+              <MenuItem onClick={handlCloseMMS}>
+                <Link to="/contactus">ContactUs</Link>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -170,7 +184,7 @@ function ResponsiveAppBar() {
                 color: theme.palette.text.primary,
               }}
             >
-             <Link to="/"> Home</Link>
+              <Link to="/"> Home</Link>
             </Button>
             <Tooltip title="Open Services">
               <Button
@@ -182,6 +196,7 @@ function ResponsiveAppBar() {
                   my: 2,
                   display: "block",
                   color: theme.palette.text.primary,
+                  fontWeight: "bold",
                 }}
               >
                 Services <ArrowDropDownIcon fontSize="small" />
@@ -195,13 +210,19 @@ function ResponsiveAppBar() {
               open={openSML}
               onClose={handleCloseSML}
             >
-              <MenuItem onClick={handleCloseSML}><Link to={"/consulting"}>Consulting</Link></MenuItem>
-              <Divider />
               <MenuItem onClick={handleCloseSML}>
-                Initial diagnoises and treatment
+                <Link to={"/consulting"}>Consulting</Link>
               </MenuItem>
               <Divider />
-              <MenuItem onClick={handleCloseSML}>Treatment</MenuItem>
+              <MenuItem onClick={handleCloseSML}>
+                <Link to="/initiahdignoisisandtreatment">
+                  Initial diagnoises and treatment
+                </Link>
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={handleCloseSML}>
+                <Link to="/treatment">Treatment</Link>
+              </MenuItem>
             </Menu>
             <Button
               onClick={() => {}}
@@ -211,7 +232,7 @@ function ResponsiveAppBar() {
                 color: theme.palette.text.primary,
               }}
             >
-              Privacy & Politics
+              <Link to="/politics&privacy">Privacy & Politics</Link>
             </Button>
 
             <Button
@@ -221,7 +242,7 @@ function ResponsiveAppBar() {
                 color: theme.palette.text.primary,
               }}
             >
-              FAQ
+              <Link to="/faq">FAQ</Link>
             </Button>
 
             <Button
@@ -232,7 +253,7 @@ function ResponsiveAppBar() {
                 color: theme.palette.text.primary,
               }}
             >
-              Contact Us
+              <Link to="/contactus">Contact Us</Link>
             </Button>
           </Box>
           <Box></Box>
@@ -241,7 +262,9 @@ function ResponsiveAppBar() {
               {darkMode ? <BrightnessHighIcon /> : <Brightness3Icon />}
             </Button>
             <Button>العربية</Button>
-            <Button><Link to="/signup">Sign Up</Link></Button>
+            <Button>
+              <Link to="/signup">Sign Up</Link>
+            </Button>
           </ButtonGroup>
         </Toolbar>
       </Container>

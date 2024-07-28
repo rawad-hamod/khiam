@@ -41,7 +41,7 @@ export default function SignIn() {
 
   return (
     
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <CssBaseline />
         <Box
           sx={{
@@ -91,8 +91,8 @@ export default function SignIn() {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
+              <Grid item xs sx={{cursor:"pointer"}}>
+                <Link variant="body2">
                   Forgot password?
                 </Link>
               </Grid>

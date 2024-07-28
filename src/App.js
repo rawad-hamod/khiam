@@ -1,23 +1,20 @@
 import { useSelector } from "react-redux";
-import { useState, useMemo } from "react";
+import { useState, useMemo, Fragment } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/homepage/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import ResponsiveAppBar from "./navbar/Header";
+import SignUp from "./pages/auth/SignUp";
+import SignIn from "./pages/auth/SignIn";
+import ResponsiveAppBar from "./navbar/ResponsiveAppBar";
 import Consulting from "./pages/services/Consulting";
 import "./App.css";
 import { CssBaseline } from "@mui/material";
-import {
-  blueGrey,
-  lightBlue,
-  red,
-  yellow,
-  green,
-  grey,
-  blue,
-} from "@mui/material/colors";
+import { blueGrey, lightBlue, green, grey } from "@mui/material/colors";
+import Treatment from "./pages/services/Treatment";
+import InitiahDignoisisAndTreatment from "./pages/services/initiahdignoisisandtreatment";
+import FAQ from "./pages/info/faq";
+import PoliticsAndPrivacy from "./pages/info/politicsandprivacy";
+import ContactUs from "./pages/info/contactus";
 
 const getDesignTokens = (mode) => ({
   palette: {
@@ -26,7 +23,7 @@ const getDesignTokens = (mode) => ({
       ? {
           // palette values for light mode
           primary: {
-            main: blueGrey[400],
+            main: blueGrey[50],
           },
           divider: blueGrey["A700"],
           background: {
@@ -77,13 +74,26 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <ResponsiveAppBar />
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/consulting" element={<Consulting/>} />
-          </Routes>
+          <Fragment>
+            <ResponsiveAppBar />
+            <Routes>
+              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/consulting" element={<Consulting />} />
+              <Route path="/treatment" element={<Treatment />} />
+              <Route
+                path="/initiahdignoisisandtreatment"
+                element={<InitiahDignoisisAndTreatment />}
+              />
+              <Route path="/faq" element={<FAQ />} />
+              <Route
+                path="/politics&privacy"
+                element={<PoliticsAndPrivacy />}
+              />
+              <Route path="/contactus" element={<ContactUs />} />
+            </Routes>
+          </Fragment>
         </ThemeProvider>
       </BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
+
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -42,7 +42,7 @@ export default function SignUp() {
 
   return (
     
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
        
         <Box
           sx={{
@@ -109,8 +109,8 @@ export default function SignUp() {
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link to='/signin' variant="body2" sx={{cursor:"pointer"}}>
+              <Grid item sx={{cursor:"pointer"}}>
+                <Link to='/signin' variant="body2" >
                   Already have an account? Sign in
                 </Link>
               </Grid>

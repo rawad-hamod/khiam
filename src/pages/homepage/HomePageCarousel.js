@@ -1,43 +1,52 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography, Box } from "@mui/material";
-import dental1 from "../../assests/slider-images/dental1.png";
+import medicalTourism from "../../assests/slider-images/medical-tourism.jpg";
+import supportTeam from "../../assests/slider-images/support-team.jpg";
 import dentist from "../../assests/slider-images/dentist.png";
-import doctoricon from "../../assests/slider-images/doctoricon.png";
-import umbrella from "../../assests/slider-images/umbrella.jpg";
+import syria from "../../assests/slider-images/syria.jpg";
+import saveTimeMoney from "../../assests/slider-images/save-time-money.jpg";
 import question from "../../assests/slider-images/question.jpg";
 
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
 export default function HomePageCarousel(props) {
+  // translation
+  const {t} = useTranslation();
   var items = [
     {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
-      image: dental1,
-      button: "apply your consult now",
+      title:t("Have you ever thought about medical tourism?"),
+      image: medicalTourism,
+      buttonDisplay:"none",
+    },{
+      title:t("Do you need an integrated support team to answer all your inquiries and develop your treatment plans?"),
+      image: supportTeam,
+      buttonDisplay:"none",
     },
     {
-      name: "Random Name #2",
-      description: "Hello World!",
-      image: doctoricon,
-      button: "apply your consult now",
-    },
-    {
-      name: "Random Name #2",
-      description: "Hello World!",
+      title:t("Have you had a specific medical diagnosis for your teeth and you need to come to Syria and receive treatment?"),
       image: dentist,
-      button: "apply your consult now",
+      buttonDisplay:"none",
+    },{
+      title:t("Do you have an idea about the advantages of dentistry in Syria?"),
+      image: syria,
+      buttonDisplay:"none",
+    }
+    ,{
+      title:t("save your time and your money"),
+      image: saveTimeMoney,
+      buttonDisplay:"none",
     },
+    
+    
     {
-      name: "Random Name #2",
-      description: "Hello World!",
-      image: umbrella,
-      button: "apply your consult now",
-    },
-    {
-      name: "Contact Us",
-      description: "we will answer any question you need",
+      
+     title: "we will answer any question you need",
       image: question,
-      button: "apply your consult now",
+      buttonDisplay:"block",
+      buttonText: t("contact us"),
+      link:"/contactus"
     },
   ];
 
@@ -85,6 +94,7 @@ function Item(props) {
         sx={{
           isolation: "isolate",
           color: "#fff",
+        textAlign:"center",
           width: {
             xs: "100%",
             md: "50%",
@@ -96,10 +106,10 @@ function Item(props) {
           },
         }}
       >
-        <Typography variant="h2">{props.item.name}</Typography>
+        <Typography variant="h2" sx={{backgroundColor:"rgba(0,0,0,0.2)"}}>{props.item.title}</Typography>
         <Typography variant="h4">{props.item.description}</Typography>
 
-        <Button variant="contained">{props.item.button}</Button>
+        <Link to={props.item.link}><Button variant="contained" sx={{display:props.item.buttonDisplay}}>{props.item.buttonText}</Button></Link>
       </Box>
     </Paper>
   );

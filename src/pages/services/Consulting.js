@@ -17,9 +17,11 @@ import DoneIcon from "@mui/icons-material/Done";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 const countries = ["Lebanon", "UAE", "Bahrain", "KSA", "Qatar"];
 export default function Consulting() {
+  // translation
+  const { t } = useTranslation();
   // theme
   const theme = useTheme();
   //   consulting form
@@ -34,23 +36,22 @@ export default function Consulting() {
     job: "",
     tests: "",
     MRI: "",
-    notes:""
+    notes: "",
   });
- console.log(consultingForm)
+  console.log(consultingForm);
   return (
     <>
       <Container component="main" maxWidth="sm">
         <CssBaseline />
         <Box
           sx={{
-            
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
           <Typography component="h1" variant="h2">
-            Consulting:
+            {t("Consulting Service:")}
           </Typography>
           <Typography
             component="h1"
@@ -59,9 +60,12 @@ export default function Consulting() {
             textAlign="center"
           >
             <div>
-              How can you use this service? <br></br>
-              Once you fill out the form at the bottom We will send you the
-              following:
+              {t("How can you use this service?")} <br></br>
+            </div>
+            <div>
+              {t(
+                "Once you fill out the form at the bottom We will send you the following:"
+              )}{" "}
             </div>
           </Typography>
           <List>
@@ -69,34 +73,33 @@ export default function Consulting() {
               <ListItemIcon>
                 <DoneIcon sx={{ color: theme.palette.text.success }} />
               </ListItemIcon>
-              <ListItemText primary="Suggest treatment options" />
+              <ListItemText primary={t("Suggest treatment options")}  sx={{margin:"10px 0"}}/>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <DoneIcon sx={{ color: theme.palette.text.success  }} />
+              </ListItemIcon>
+              <ListItemText primary={t("Treatment plan") }/>
             </ListItem>
             <ListItem>
               <ListItemIcon>
                 <DoneIcon sx={{ color: theme.palette.text.success }} />
               </ListItemIcon>
-              <ListItemText primary="Treatment plan" />
+              <ListItemText primary={t("Approximate duration of treatment")} />
             </ListItem>
             <ListItem>
               <ListItemIcon>
                 <DoneIcon sx={{ color: theme.palette.text.success }} />
               </ListItemIcon>
-              <ListItemText primary="Approximate duration of treatment" />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <DoneIcon sx={{ color: theme.palette.text.success }} />
-              </ListItemIcon>
-              <ListItemText primary="Estimated cost" />
+              <ListItemText primary={t("Estimated cost")} />
             </ListItem>
           </List>
         </Box>
       </Container>
       {/* consulting form aria */}
       <Container component="main" maxWidth="lg">
-        <Paper sx={{alignText:"center"}}>
-            <Typography variant="h3">Please fill the form below:</Typography>
-            
+        <Paper >
+          <Typography variant="h3" sx={{ alignText: "center" }} >{t("Please fill the form below :")}</Typography>
         </Paper>
         <Box
           component="form"
@@ -108,7 +111,7 @@ export default function Consulting() {
             flexDirection: "row",
             alignItems: "center",
             justifyContext: "center",
-            padding:{xs:"20px", lg:"0" }
+            padding: { xs: "20px", lg: "0" },
           }}
         >
           <Grid container alignItems="center" spacing={3}>
@@ -122,7 +125,12 @@ export default function Consulting() {
                 name="name"
                 type="text"
                 value={consultingForm.name}
-                onChange={(e)=>{setConsultingForm({...consultingForm,name:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    name: e.target.value,
+                  });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={3}>
@@ -135,7 +143,12 @@ export default function Consulting() {
                 name="email"
                 type="email"
                 value={consultingForm.email}
-                onChange={(e)=>{setConsultingForm({...consultingForm,email:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    email: e.target.value,
+                  });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={3}>
@@ -148,7 +161,9 @@ export default function Consulting() {
                 name="age"
                 type="number"
                 value={consultingForm.age}
-                onChange={(e)=>{setConsultingForm({...consultingForm,age:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({ ...consultingForm, age: e.target.value });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={3}>
@@ -161,7 +176,12 @@ export default function Consulting() {
                 name="gender"
                 select
                 value={consultingForm.gender}
-                onChange={(e)=>{setConsultingForm({...consultingForm,gender:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    gender: e.target.value,
+                  });
+                }}
               >
                 <MenuItem value="male">male</MenuItem>
                 <MenuItem value="female">female</MenuItem>
@@ -178,7 +198,12 @@ export default function Consulting() {
                 type="text"
                 helperText="+96394******"
                 value={consultingForm.phoneNumber}
-                onChange={(e)=>{setConsultingForm({...consultingForm,phoneNumber:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    phoneNumber: e.target.value,
+                  });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={3}>
@@ -192,7 +217,12 @@ export default function Consulting() {
                 type="text"
                 helperText="+96394******"
                 value={consultingForm.whatsAppNum}
-                onChange={(e)=>{setConsultingForm({...consultingForm,whatsAppNum:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    whatsAppNum: e.target.value,
+                  });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={3}>
@@ -206,7 +236,12 @@ export default function Consulting() {
                 select
                 helperText="choose the country"
                 value={consultingForm.resedence}
-                onChange={(e)=>{setConsultingForm({...consultingForm,resedence:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    resedence: e.target.value,
+                  });
+                }}
               >
                 {countries.map((country) => {
                   return (
@@ -232,7 +267,9 @@ export default function Consulting() {
                 type="text"
                 helperText="It may help us with diagnosis"
                 value={consultingForm.job}
-                onChange={(e)=>{setConsultingForm({...consultingForm,job:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({ ...consultingForm, job: e.target.value });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={6}>
@@ -243,7 +280,12 @@ export default function Consulting() {
                 name="medical tests image"
                 type="file"
                 helperText="If medical tests were performed, please upload the photo or PDF file"
-                onChange={(e)=>{setConsultingForm({...consultingForm,tests:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    tests: e.target.value,
+                  });
+                }}
               />
             </Grid>
             <Grid Item xs={12} md={6}>
@@ -255,10 +297,12 @@ export default function Consulting() {
                 type="file"
                 helperText="If you had an MRI,CT,Pet CT please upload photo or video"
                 value={consultingForm.MRI}
-                onChange={(e)=>{setConsultingForm({...consultingForm,MRI:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({ ...consultingForm, MRI: e.target.value });
+                }}
               />
             </Grid>
-            <Grid Item xs={12} >
+            <Grid Item xs={12}>
               <TextField
                 sx={{ width: "100%" }}
                 margin="normal"
@@ -267,7 +311,12 @@ export default function Consulting() {
                 type="text aria"
                 label="if you had some thing to tell us please type it here:"
                 value={consultingForm.notes}
-                onChange={(e)=>{setConsultingForm({...consultingForm,notes:e.target.value})}}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    notes: e.target.value,
+                  });
+                }}
               />
             </Grid>
 

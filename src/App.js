@@ -8,8 +8,9 @@ import SignIn from "./pages/auth/SignIn";
 import ResponsiveAppBar from "./navbar/ResponsiveAppBar";
 import Consulting from "./pages/services/Consulting";
 import "./App.css";
+
 import { CssBaseline } from "@mui/material";
-import { blueGrey, lightBlue, green, grey } from "@mui/material/colors";
+import { blueGrey, green, grey, orange } from "@mui/material/colors";
 import Treatment from "./pages/services/Treatment";
 import InitiahDignoisisAndTreatment from "./pages/services/initiahdignoisisandtreatment";
 import FAQ from "./pages/info/faq";
@@ -18,28 +19,35 @@ import ContactUs from "./pages/info/contactus";
 
 const getDesignTokens = (mode) => ({
   palette: {
+    typography: {
+      fontFamily: ["Chilanka", "cursive"].join(","),
+    },
+
     mode,
     ...(mode === "light"
       ? {
           // palette values for light mode
           primary: {
-            main: blueGrey[50],
+            main: "#297EAA",
+            section: "#fff",
           },
           divider: blueGrey["A700"],
           background: {
-            default: green[50],
+            default: "#afdde5",
             paper: blueGrey[100],
           },
           text: {
-            primary: grey["A700"],
-            secondary: lightBlue[600],
+            primary: blueGrey["A700"],
+            secondary: "#B3C7D1",
             success: green[400],
+            orange: orange,
           },
         }
       : {
           // palette values for dark mode
           primary: {
             main: "#dbf4ff",
+            section: "#757575",
           },
           divider: grey["A700"],
           background: {
@@ -48,8 +56,9 @@ const getDesignTokens = (mode) => ({
           },
           text: {
             primary: "#fff",
-            secondary: lightBlue[600],
+            secondary: "#fff",
             success: green[700],
+            orange: orange[100],
           },
         }),
   },

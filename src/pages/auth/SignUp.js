@@ -11,33 +11,14 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit">
-      khiam
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
-
+import { useTranslation } from "react-i18next";
 
 export default function SignUp() {
+  // translation
+  const{t}=useTranslation();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
   };
 
   return (
@@ -56,7 +37,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            {t("sign up")}
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -67,7 +48,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="firstName"
-                  label="Name"
+                  label={t("name")}
                   
                 />
               </Grid>
@@ -77,7 +58,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label={t("email")}
                   name="email"
                   autoComplete="email"
                 />
@@ -87,7 +68,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label={t("password")}
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -96,7 +77,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  label={t("I want to receive news and last updates via email.")}
                 />
               </Grid>
             </Grid>
@@ -106,18 +87,18 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              {t("sign up")}
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item sx={{cursor:"pointer"}}>
                 <Link to='/signin' variant="body2" >
-                  Already have an account? Sign in
+                  {t("Already have an account? Sign in")}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        
       </Container>
     
   );

@@ -6,7 +6,8 @@ body {
   margin: 0;
   padding-top: 60px;
   
-  font-family: 'Vazir', sans-serif !important;
+  font-family:'Chilanka',
+  'cursive';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,5 +19,7 @@ code {
 a{
   all: unset;
   font-weight: bold;
+  font-size: 20px;
+  
   
 }

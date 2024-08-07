@@ -68,7 +68,7 @@ function Item(props) {
     <Paper
       sx={{
         width: "100%",
-        height: "100vh",
+        height: "80vh",
         margin: "0",
         background: "rgba(0,0,0,0.5)",
         display: "flex",

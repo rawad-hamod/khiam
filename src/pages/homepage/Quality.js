@@ -34,8 +34,8 @@ function Avatar1(props) {
       <Box
         variant="circular"
         sx={{
-          width: "300px",
-          height: "300px",
+          width: '300px',
+          height: '300px',
           border: "solid grey 1px 1px",
           borderRadius: "10px",
           margin:{xs:"10px auto"} ,
@@ -46,8 +46,8 @@ function Avatar1(props) {
       />
 
       <Typography
-        variant="h6"
-        sx={{ textAlign: "center", width: "300px", margin: "0 auto" }}
+        variant="body1"
+        sx={{ textAlign: "center", margin: "0 auto",width:"100%"}}
       >
         {props.item.text}
       </Typography>
@@ -60,7 +60,7 @@ function Quality() {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow:4,
     slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 1500,
@@ -70,29 +70,23 @@ function Quality() {
     fullHeightOnHover:true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 900,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
           slidesToScroll: 1,
-          
-        },
+          infinite: true,
+          dots: true
+        }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
       },
+     
     ],
   };
   // translation
@@ -137,7 +131,7 @@ function Quality() {
     <div className="slider-container" style={{ padding: "30px 0px" }}>
       <Slider {...settings}>
         {items.map((item, i) => {
-          return <Avatar1 key={i} item={item} />;
+          return <Avatar1 key={i} item={item} sx={{width:{xs:"40%",md:"20%"}}} />;
         })}
       </Slider>
     </div>

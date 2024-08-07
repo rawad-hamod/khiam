@@ -75,7 +75,7 @@ function ResponsiveAppBar() {
     document.body.dir = i18n.dir();
   }, [i18n, i18n.language]);
   return (
-    <AppBar position="fixed" sx={{ height: "70px", top: "0" }}>
+    <AppBar  position="fixed" sx={{ height: "70px", top: "0",backgroundColor: "#297EAA" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* the menu icon  */}
@@ -191,13 +191,13 @@ function ResponsiveAppBar() {
           >
             Khiam
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" },color:"#fff" }} >
             <Button
               onClick={() => {}}
               sx={{
                 my: 2,
                 display: "block",
-                color: theme.palette.text.secondary,
+                color:"#fff"
               }}
             >
               <Link to="/"> {t("home")}</Link>
@@ -208,7 +208,7 @@ function ResponsiveAppBar() {
                 aria-controls="sml"
                 aria-haspopup="true"
                 aria-expanded="true"
-                sx={{ color: theme.palette.text.secondary }}
+                sx={{ color: "#fff" }}
               >
                 <Link>
                   {" "}
@@ -244,7 +244,7 @@ function ResponsiveAppBar() {
               sx={{
                 my: 2,
                 display: "block",
-                color: theme.palette.text.secondary,
+                color:"#fff"
               }}
             >
               <Link to="/politics&privacy">{t("privacy & politics")}</Link>
@@ -254,7 +254,7 @@ function ResponsiveAppBar() {
               sx={{
                 my: 2,
                 display: "block",
-                color: theme.palette.text.secondary,
+                color:"#fff"
               }}
             >
               <Link to="/faq">{t("FAQ")}</Link>
@@ -265,7 +265,7 @@ function ResponsiveAppBar() {
               sx={{
                 my: 2,
                 display: "block",
-                color: theme.palette.text.secondary,
+                color:"#fff"
               }}
             >
               <Link to="/contactus">{t("contact us")}</Link>

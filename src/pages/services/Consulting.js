@@ -319,6 +319,23 @@ export default function Consulting() {
                 }}
               />
             </Grid>
+            <Grid Item xs={12}>
+              <TextField
+                sx={{ width: "100%" }}
+                margin="normal"
+                id="notes"
+                name="notes"
+                type="date"
+                label="if you had some thing to tell us please type it here:"
+                value={consultingForm.notes}
+                onChange={(e) => {
+                  setConsultingForm({
+                    ...consultingForm,
+                    notes: e.target.value,
+                  });
+                }}
+              />
+            </Grid>
 
             <Button
               type="submit"

@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux";
 import { useState, useMemo, Fragment } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 import HomePage from "./pages/homepage/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/auth/SignUp";
 import SignIn from "./pages/auth/SignIn";
-import ResponsiveAppBar from "./navbar/ResponsiveAppBar";
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import Consulting from "./pages/services/Consulting";
 import "./App.css";
 
@@ -16,6 +20,8 @@ import InitiahDignoisisAndTreatment from "./pages/services/initiahdignoisisandtr
 import FAQ from "./pages/info/faq";
 import PoliticsAndPrivacy from "./pages/info/politicsandprivacy";
 import ContactUs from "./pages/info/contactus";
+import Footer from "./components/Footer";
+import AboutUs from "./pages/homepage/AboutUs";
 
 const getDesignTokens = (mode) => ({
   palette: {
@@ -46,7 +52,7 @@ const getDesignTokens = (mode) => ({
       : {
           // palette values for dark mode
           primary: {
-            main: "#dbf4ff",
+            main: "#252424",
             section: "#757575",
           },
           divider: grey["A700"],
@@ -77,32 +83,39 @@ function App() {
   }, [darkMode]);
 
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+  let x = createTheme();
+  x = responsiveFontSizes(x);
 
   return (
     <div className="App">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Fragment>
-            <ResponsiveAppBar />
-            <Routes>
-              <Route path="/" element={<HomePage />}></Route>
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/consulting" element={<Consulting />} />
-              <Route path="/treatment" element={<Treatment />} />
-              <Route
-                path="/initiahdignoisisandtreatment"
-                element={<InitiahDignoisisAndTreatment />}
-              />
-              <Route path="/faq" element={<FAQ />} />
-              <Route
-                path="/politics&privacy"
-                element={<PoliticsAndPrivacy />}
-              />
-              <Route path="/contactus" element={<ContactUs />} />
-            </Routes>
-          </Fragment>
+            <CssBaseline />
+          <ThemeProvider theme={x}>
+            <Fragment>
+              <ResponsiveAppBar />
+              <Routes>
+                <Route path="/" element={<HomePage />}>
+                  <Route path="/aboutus" element={<AboutUs />} />
+                </Route>
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/consulting" element={<Consulting />} />
+                <Route path="/treatment" element={<Treatment />} />
+                <Route
+                  path="/initiahdignoisisandtreatment"
+                  element={<InitiahDignoisisAndTreatment />}
+                />
+                <Route path="/faq" element={<FAQ />} />
+                <Route
+                  path="/politics&privacy"
+                  element={<PoliticsAndPrivacy />}
+                />
+                <Route path="/contactus" element={<ContactUs />} />
+              </Routes>
+              <Footer />
+            </Fragment>
+          </ThemeProvider>
         </ThemeProvider>
       </BrowserRouter>
     </div>

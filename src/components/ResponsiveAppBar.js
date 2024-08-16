@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import Brightness3Icon from "@mui/icons-material/Brightness3";
@@ -29,6 +30,7 @@ function ResponsiveAppBar() {
   const theme = useTheme();
   // translation
   const { t, i18n } = useTranslation();
+  const{dentistry, medicine, comestic}=t("navbar")
   // toggle language
   const toggleLanguage = () => {
     if (i18n.language === "ar") {
@@ -72,10 +74,12 @@ function ResponsiveAppBar() {
     setAnchorElMMS(null);
   };
   useEffect(() => {
-    document.body.dir = i18n.dir();
-  }, [i18n, i18n.language]);
+    const dir = i18n.dir(i18n.language);
+    document.body.dir = dir;
+    // localStorage.setItem("i18nextLng",JSON.stringify(i18n.language))
+ }, [i18n, i18n.language]);
   return (
-    <AppBar  position="fixed" sx={{ height: "70px", top: "0",backgroundColor: "#297EAA" }}>
+    <AppBar  position="fixed" sx={{ height: "70px", top: "0" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* the menu icon  */}
@@ -107,9 +111,9 @@ function ResponsiveAppBar() {
                   aria-controls="SMS"
                   aria-haspopup="true"
                   aria-expanded={openSMS}
-                  sx={{ fontWeight: "bold" }}
+                  sx={{ fontWeight: "bold", letterSpacing:"0px" }}
                 >
-                  {t("services")} <ArrowRightIcon />
+                  {t("services")} {document.body.dir==="ltr"?<ArrowRightIcon sx={{margin:"0px"}}/>:<ArrowLeftIcon sx={{margin:"0px"}}/>}
                 </MenuItem>
               </Box>
               <Divider />
@@ -120,24 +124,28 @@ function ResponsiveAppBar() {
                 onClose={handleCloseSMS}
                 anchorOrigin={{
                   vertical: "top",
-                  horizontal: "right",
+                  horizontal: document.body.dir==="ltr"? "left":"right",
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: document.body.dir==="ltr"? "left":"right",
                 }}
               >
                 <Link to="/consulting">
                   <MenuItem onClick={handleCloseSMS}>
-                    {t("consulting")}
+                    {t(dentistry)}
                   </MenuItem>
                 </Link>
                 <Divider />
 
                 <Link to="/initiahdignoisisandtreatment">
                   <MenuItem onClick={handleCloseSMS}>
-                    {t("initial diagnoises and treatment")}
+                    {t(medicine)}
                   </MenuItem>
                 </Link>
                 <Divider />
                 <Link to="/treatment">
-                  <MenuItem onClick={handleCloseSMS}>{t("treatment")}</MenuItem>
+                  <MenuItem onClick={handleCloseSMS}>{t(comestic)}</MenuItem>
                 </Link>
               </Menu>
               <Link to="/politics&privacy">
@@ -163,7 +171,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "orange",
@@ -202,6 +210,16 @@ function ResponsiveAppBar() {
             >
               <Link to="/"> {t("home")}</Link>
             </Button>
+            <Button
+              onClick={() => {}}
+              sx={{
+                my: 2,
+                display: "block",
+                color:"#fff"
+              }}
+            >
+              <Link to="/ask-medical-question"> {t("Ask a medical question")}</Link>
+            </Button>
             <Tooltip title="Open Services">
               <Button
                 onClick={handleClickSML}
@@ -225,18 +243,18 @@ function ResponsiveAppBar() {
               onClose={handleCloseSML}
             >
               <Link to={"/consulting"}>
-                <MenuItem onClick={handleCloseSML}>{t("consulting")}</MenuItem>
+                <MenuItem onClick={handleCloseSML}>{t(dentistry)}</MenuItem>
               </Link>
               <Divider />
 
               <Link to="/initiahdignoisisandtreatment">
                 <MenuItem onClick={handleCloseSML}>
-                  {t("initial diagnoises and treatment")}
+                  {t(medicine)}
                 </MenuItem>
               </Link>
               <Divider />
               <Link to="/treatment">
-                <MenuItem onClick={handleCloseSML}>{t("treatment")}</MenuItem>
+                <MenuItem onClick={handleCloseSML}>{t(comestic)}</MenuItem>
               </Link>
             </Menu>
             <Button
@@ -272,15 +290,15 @@ function ResponsiveAppBar() {
             </Button>
           </Box>
 
-          <ButtonGroup variant="contained" aria-label="Basic button group">
-            <Button className="orangeButton" onClick={() => dispatch(asyncToggleTheme())}>
+          <ButtonGroup variant="contained" aria-label="Basic button group" spacing={2}>
+            <Button color="secondary" onClick={() => dispatch(asyncToggleTheme())}>
               {darkMode ? <BrightnessHighIcon /> : <Brightness3Icon />}
             </Button>
-            <Button onClick={toggleLanguage} className="orangeButton">
+            <Button onClick={toggleLanguage} color="secondary">
               {" "}
               {i18n.language === "en" ? "العربية" : "English"}
             </Button>
-            <Button className="orangeButton" >
+            <Button color="secondary" >
               <Link to="/signup">{t("sign up")}</Link>
             </Button>
           </ButtonGroup>

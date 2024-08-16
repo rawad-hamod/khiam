@@ -19,7 +19,7 @@ function MedicalTourismSYR(props) {
             alignItems: "center",
             justifyContent: "center",
             padding: "50px",
-            backgroundColor:theme.palette.primary.main,
+          
           }}
         >
           <Grid item xs={12}>

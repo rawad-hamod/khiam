@@ -1,6 +1,6 @@
+import { useTranslation } from "react-i18next";
 import React from "react";
 import Slider from "react-slick";
-import { useTranslation } from "react-i18next";
 import perfectUx from "../../assests/medicaltourismSYR/perfect-ux.jpg";
 import precessionInTiming from "../../assests/medicaltourismSYR/Precession in timing.jpg";
 import qualified from "../../assests/medicaltourismSYR/qualified.jpg";

@@ -20,6 +20,9 @@ import TurnedInNotTwoToneIcon from "@mui/icons-material/TurnedInNotTwoTone";
 import signUpImage from "../../assests/steps/signUp.png";
 import navMenu from "../../assests/steps/navMenu.jpg";
 import fillTheForm from "../../assests/steps/fillTheform.jpg";
+import { useTranslation } from "react-i18next";
+
+// services
 const details = [
   {
     value: "0",
@@ -38,19 +41,16 @@ const details = [
   {
     value: "1",
     introduction:
-      " in online consulting we answer all your questions related to a medical condition, with out providing diagnoises or treatment, rest assured that all your information whether medical or personal are top secret",
-
+      "If you wish to come and recieve treatment, we will study your health condition in more detail based on a set of information you provide by filling out our medical form, we can provide the initial diagnoises that is closest to your condition, in addition to provide you with treatment plan from A to Z",
     advanteges: [
-      "A detailed answer to all your questions related to a medical condition.",
-      "Clear information about your condition and illness.",
-      "Explanatory information about your symptoms and how they relate to your disease.",
-      "Ways and means of preventing complications as much as possible.",
-      "Habits and methods to prevent the consequences of your illness as much as possible",
-      "Improve the quality of your life and make it healthier",
+      "Schedule a suitable appointment to communicate remotely with our doctors.",
+      "Get an initial diagnosis of your medical condition.",
+      "Treatment options with approximate duration and cost.",
     ],
   },
 ];
-const cardDetails = [
+// steps in card details
+const consultingCardDetails = [
   {
     value: "0",
     image: signUpImage,
@@ -59,7 +59,8 @@ const cardDetails = [
     details:
       "You must have an account in Khiam and log in to it. If you are logged in, go to the next step, or create an account on the site by clicking this button. ",
     buttonContent: "SignUp",
-  },{
+  },
+  {
     value: "1",
     image: navMenu,
     alt: "nav menu",
@@ -67,7 +68,8 @@ const cardDetails = [
     details:
       "You  have to click to the menu icon from the nav bar services then dental then consulting, or immediately click this button ",
     buttonContent: "on line consulting",
-  },{
+  },
+  {
     value: "2",
     image: fillTheForm,
     alt: "fill the form",
@@ -75,7 +77,8 @@ const cardDetails = [
     details:
       "Fill the fields in your information and describe how can we help you, then click to submit button",
     buttonContent: "on line consulting",
-  },{
+  },
+  {
     value: "3",
     image: fillTheForm,
     alt: "fill the form",
@@ -83,22 +86,21 @@ const cardDetails = [
     details:
       "Khiam will contact you during 24-48 hours and provide you with details, this service completely free",
     buttonContent: "Apply Now",
-  }
+  },
 ];
 function StepCard({ card }) {
   return (
     <TabPanel value={card.value}>
-      <Card sx={{ maxWidth: 345, padding: "5px" }}>
+      <Card sx={{ width:{xs:"400px"}, height:{xs:"400px"},padding: "5px" }}>
         <CardActionArea>
           <CardMedia
-          
             component="img"
-            height="200"
-            width="100%"
+            
             size="small"
             image={card.image}
             alt={card.alt}
-            sx={{objectFit: "fill" }}
+            sx={{ objectFit: "fill",width:"400px",height:"200px"}}
+           
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -133,9 +135,9 @@ function ServiceDetails({ item }) {
             <List>
               {item.advanteges.map((advantage, index) => {
                 return (
-                  <ListItem key={index}>
-                    <ListItemIcon>
-                      <TurnedInNotTwoToneIcon />
+                  <ListItem key={index} >
+                    <ListItemIcon >
+                      <TurnedInNotTwoToneIcon color="secondary" />
                     </ListItemIcon>
                     <ListItemText>{advantage}</ListItemText>
                   </ListItem>
@@ -149,6 +151,8 @@ function ServiceDetails({ item }) {
   );
 }
 export default function Services() {
+  const { t } = useTranslation();
+  const{step1,step2,step3,step4}=t("servicespage")
   // theme
   const theme = useTheme();
   // tabs
@@ -164,14 +168,14 @@ export default function Services() {
   return (
     <Box
       spacing={2}
-      justify="center"
+      className="centerFlexColumn"
       sx={{
-        backgroundColor: theme.palette.primary.section,
-        padding: { md: "5% 30% 5% 30%", xs: "20px" },
+        backgroundColor: "background.section",
+        padding: { md: "5% 20% 5% 20%", xs: "20px" },
       }}
     >
       <Typography variant="h2">Services:</Typography>
-      <Typography variant="h5">
+      <Typography variant="body1">
         We offer you and your family varient health services that range from
         remote consultation to diagnosis and suggesting treatment plans. You can
         also communicate with the most skilled doctors, travel and receive
@@ -189,8 +193,8 @@ export default function Services() {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
               >
-                <Tab label="consulting" value="0" />
-                <Tab label="diagnoises" value="1" />
+                <Tab label="consulting" value="0" color="secondary" />
+                <Tab label="Develop a medical travel plan" value="1" color="secondary" />
               </TabList>
             </Box>
 
@@ -206,19 +210,19 @@ export default function Services() {
         follow the steps:
       </Typography>
       <Box sx={{ width: "100%", typography: "body1" }}>
-        <TabContext value={stepValue}>
+        <TabContext value={stepValue} centered>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList
               onChange={handleStepChange}
               aria-label="lab API tabs example"
             >
-              <Tab label="step 1" value="0" />
-              <Tab label="step 2" value="1" />
-              <Tab label="step 3" value="2" />
-              <Tab label="step 4" value="3" />
+              <Tab label={step1} value="0" sx={{color:theme.palette.secondary.main}} />
+              <Tab label={step2} value="1" sx={{color:theme.palette.secondary.main}} />
+              <Tab label={step3} value="2" sx={{color:theme.palette.secondary.main}} />
+              <Tab label={step4} value="3" sx={{color:theme.palette.secondary.main}} />
             </TabList>
           </Box>
-          {cardDetails.map((card, i) => {
+          {consultingCardDetails.map((card, i) => {
             return <StepCard card={card} key={i} />;
           })}
         </TabContext>

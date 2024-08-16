@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Box, Grid, List, ListItem, Typography } from "@mui/material";
+import { Box, Grid, List, ListItem, Typography} from "@mui/material";
 import {
   faFacebook,
   faSquareInstagram,
@@ -9,12 +9,14 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
+    <Box >
     <Grid
       container
-      sx={{ padding: "50px", backgroundColor: "#297EAA", marginTop: "3rem" ,color:"#fff"}}
+      sx={{ padding: "10px", marginTop: "3rem", bottom:"0"}}
       alignItems="center"
       justify="center"
       spacing={2}
+     
     >
       <Grid
         Item
@@ -66,7 +68,7 @@ export default function Footer() {
         xs={12}
         md={4}
         sx={{
-          paddingTop: "20px",
+        
           margin: "2rem auto",
           display: "flex",
           flexDirection: "column",
@@ -78,19 +80,19 @@ export default function Footer() {
         <Typography variant="h5"> Important Links:</Typography>
         <List>
           <ListItem>
-            <Link to="/aboutus"> About Khiam</Link>
+            <Link  > About Khiam</Link>
           </ListItem>
           <ListItem>
-            <Link to="/treatmentInSYR"> Treatment In Syria</Link>
+            <Link > Treatment In Syria</Link>
           </ListItem>
           <ListItem>
-            <Link to="/treatmentInSYR"> How can we help you</Link>
+            <Link> How can we help you</Link>
           </ListItem>
           <ListItem>
-            <Link to="/politics&privacy">Politics & Privacy</Link>
+            <Link>Politics & Privacy</Link>
           </ListItem>
           <ListItem>
-            <Link to="/faq">FAQ</Link>
+            <Link>FAQ</Link>
           </ListItem>
         </List>
       </Grid>
@@ -107,7 +109,7 @@ export default function Footer() {
           gap: "1rem",
         }}
       >
-        <Typography variant="h5"> Our services:</Typography>
+        <Typography variant="h6"> Our services:</Typography>
         <List >
           <ListItem>
             <Link to="/consulting">Consulting</Link>
@@ -123,5 +125,6 @@ export default function Footer() {
         </List>
       </Grid>
     </Grid>
+    </Box>
   );
 }

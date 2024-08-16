@@ -2,6 +2,8 @@
 "home": "home",
 "name":"name",
 "services": "services",
+"Ask a medical question":"Ask a medical Question",
+
 "contact us":"contact us",
 "FAQ":"FAQ",
 "privacy & politics":"privacy & politics",
@@ -38,5 +40,30 @@
 "Estimated cost":"Estimated cost",
 "Please fill the form below :":"Please fill the form below :",
 "about us":"about us",
-"about us description":"Al-Khayyam is an electronic medical platform specialized in providing health care services on line and facilitating access to it by patients and users. We believe in the importance of technology in improving the quality of health care and saving time and effort for patients. Try to be a link between patients and medical providers, focusing on providing a safe and comfortable user experience."
+"about us description":"Al-Khayyam is an electronic medical platform specialized in providing health care services on line and facilitating access to it by patients and users. We believe in the importance of technology in improving the quality of health care and saving time and effort for patients. Try to be a link between patients and medical providers, focusing on providing a safe and comfortable user experience.",
+"servicespage":{"step1":"step 1","step2":"step 2","step3":"step 3","step4":"step 4"},
+"navbar":{
+  "dentistry":"dentistry",
+  "medicine":"medicine",
+  "comestic":"Cosmetic medicine/surgical/non-surgical"
+},
+"hero":{
+  "heroTitle":"save your time, money and health",
+  "heroDetails":"ask amedicl question.. book to communicate with a doctor and more...",
+  "heroButton":"more details"
+},
+
+
+
+"contactus":{
+  "title":"Contact Khiam:",
+  "desc":"We are here to help you, and answer any question you might have. We look forward to hearing from you",
+  "firstname":"First Name",
+  "lastname":"Last Name",
+  "email":"email",
+  "question":"Type your question here:",
+  "send":"send",
+  "firstnameExample":"Example: Ahmed",
+  "lastnameExample":"Example: Alkhiam"
+}
   }

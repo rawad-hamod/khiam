@@ -1,5 +1,5 @@
 import AboutUs from "./AboutUs";
-import HomePageCarousel from "./HomePageCarousel";
+import Hero from "./Hero";
 import MedicalTourismSYR from "./MedicalTourismSYR";
 import Quality from "./Quality"
 import Services from "./Services";
@@ -7,7 +7,7 @@ import Services from "./Services";
 export default function HomePage() {
   return (
     <div>
-      <HomePageCarousel />
+      <Hero />
       <AboutUs />
       <MedicalTourismSYR/>
       <Quality/>

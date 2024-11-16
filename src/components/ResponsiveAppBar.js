@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+
 import MenuItem from "@mui/material/MenuItem";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
@@ -22,15 +22,24 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { ButtonGroup, Divider } from "@mui/material";
 import { asyncToggleTheme } from "../store/reducers/themeSlice";
-import { useTheme } from "@emotion/react";
+
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 function ResponsiveAppBar() {
-  // theme
-  const theme = useTheme();
+ 
   // translation
   const { t, i18n } = useTranslation();
-  const{dentistry, medicine, comestic}=t("navbar")
+  const {
+    home,
+    dentistry,
+    medicine,
+    comestic,
+    askAmedicalQuestion,
+    contactUs,
+    FAQ,
+    privacyPolicy,
+    treatmentRequest,
+  } = t("navbar");
   // toggle language
   const toggleLanguage = () => {
     if (i18n.language === "ar") {
@@ -77,9 +86,9 @@ function ResponsiveAppBar() {
     const dir = i18n.dir(i18n.language);
     document.body.dir = dir;
     // localStorage.setItem("i18nextLng",JSON.stringify(i18n.language))
- }, [i18n, i18n.language]);
+  }, [i18n, i18n.language]);
   return (
-    <AppBar  position="fixed" sx={{ height: "70px", top: "0" }}>
+    <AppBar position="fixed" sx={{ height: "70px", top: "0",backgroundColor:"background.default" }} >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* the menu icon  */}
@@ -90,7 +99,7 @@ function ResponsiveAppBar() {
               aria-haspopup="true"
               aria-expanded={openMMS}
               onClick={handleClickMMS}
-              color="inherit"
+              
             >
               <MenuIcon />
             </IconButton>
@@ -102,20 +111,31 @@ function ResponsiveAppBar() {
               onClose={handlCloseMMS}
             >
               <Link to="/">
-                <MenuItem onClick={handlCloseMMS}>{t("home")}</MenuItem>
+                <MenuItem onClick={handlCloseMMS}>{home}</MenuItem>
               </Link>
               <Divider />
-              <Box>
+              <Link to="/ask-medical-question">
+                <MenuItem onClick={handlCloseMMS}>{askAmedicalQuestion}</MenuItem>
+              </Link>
+              <Divider />
+              
                 <MenuItem
                   onClick={handleClickSMS}
                   aria-controls="SMS"
                   aria-haspopup="true"
                   aria-expanded={openSMS}
-                  sx={{ fontWeight: "bold", letterSpacing:"0px" }}
+                  sx={{ fontWeight: "bold", letterSpacing: "0px" }}
                 >
-                  {t("services")} {document.body.dir==="ltr"?<ArrowRightIcon sx={{margin:"0px"}}/>:<ArrowLeftIcon sx={{margin:"0px"}}/>}
+                  <Link>
+                  {treatmentRequest}{" "}
+                  {document.body.dir === "ltr" ? (
+                    <ArrowRightIcon sx={{ margin: "0px" }} />
+                  ) : (
+                    <ArrowLeftIcon sx={{ margin: "0px" }} />
+                  )}
+                  </Link>
                 </MenuItem>
-              </Box>
+             
               <Divider />
               <Menu
                 id="SMS"
@@ -124,42 +144,38 @@ function ResponsiveAppBar() {
                 onClose={handleCloseSMS}
                 anchorOrigin={{
                   vertical: "top",
-                  horizontal: document.body.dir==="ltr"? "left":"right",
+                  horizontal: document.body.dir === "ltr" ? "left" : "right",
                 }}
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: document.body.dir==="ltr"? "left":"right",
+                  vertical: "top",
+                  horizontal: document.body.dir === "ltr" ? "left" : "right",
                 }}
               >
-                <Link to="/consulting">
-                  <MenuItem onClick={handleCloseSMS}>
-                    {t(dentistry)}
-                  </MenuItem>
+                <Link to="/dentistry">
+                  <MenuItem onClick={handleCloseSMS}>{dentistry}</MenuItem>
                 </Link>
                 <Divider />
 
-                <Link to="/initiahdignoisisandtreatment">
-                  <MenuItem onClick={handleCloseSMS}>
-                    {t(medicine)}
-                  </MenuItem>
+                <Link to="/medicine">
+                  <MenuItem onClick={handleCloseSMS}>{medicine}</MenuItem>
                 </Link>
                 <Divider />
-                <Link to="/treatment">
-                  <MenuItem onClick={handleCloseSMS}>{t(comestic)}</MenuItem>
+                <Link to="/comestic">
+                  <MenuItem onClick={handleCloseSMS}>{comestic}</MenuItem>
                 </Link>
               </Menu>
-              <Link to="/politics&privacy">
+              <Link to="/politicsprivacy">
                 <MenuItem onClick={handlCloseMMS}>
-                  {t("privacy & politics")}
+                  {privacyPolicy}
                 </MenuItem>
               </Link>
               <Divider />
               <Link to="/faq">
-                <MenuItem onClick={handlCloseMMS}>{t("FAQ")}</MenuItem>
+                <MenuItem onClick={handlCloseMMS}>{FAQ}</MenuItem>
               </Link>
               <Divider />
               <Link to="/contactus">
-                <MenuItem onClick={handlCloseMMS}>{t("contact us")}</MenuItem>
+                <MenuItem onClick={handlCloseMMS}>{contactUs}</MenuItem>
               </Link>
             </Menu>
           </Box>
@@ -171,7 +187,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              
+
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "orange",
@@ -199,41 +215,57 @@ function ResponsiveAppBar() {
           >
             Khiam
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" },color:"#fff" }} >
-            <Button
-              onClick={() => {}}
-              sx={{
-                my: 2,
-                display: "block",
-                color:"#fff"
-              }}
-            >
-              <Link to="/"> {t("home")}</Link>
-            </Button>
-            <Button
-              onClick={() => {}}
-              sx={{
-                my: 2,
-                display: "block",
-                color:"#fff"
-              }}
-            >
-              <Link to="/ask-medical-question"> {t("Ask a medical question")}</Link>
-            </Button>
-            <Tooltip title="Open Services">
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", lg: "flex" },
+              
+            }}
+          >
+            <Link to="/">
+              <Button
+                onClick={() => {}}
+                sx={{
+                  my: 2,
+                  display: "block",
+                  
+                }}
+              >
+                {home}
+              </Button>
+            </Link>
+            <Link to="/ask-medical-question">
+              <Button
+                onClick={() => {}}
+                sx={{
+                  my: 2,
+                  display: "block",
+                 
+                  
+                }}
+              >
+                {askAmedicalQuestion}
+              </Button>
+            </Link>
+            {/* <Tooltip title="Open Services"> */}
+            <Link>
               <Button
                 onClick={handleClickSML}
                 aria-controls="sml"
                 aria-haspopup="true"
                 aria-expanded="true"
-                sx={{ color: "#fff" }}
+                sx={{
+                  my: 1.75,
+                  display: "block",
+                 
+                }}
               >
-                <Link>
-                  {" "}
-                  {t("services")} <ArrowDropDownIcon fontSize="small" />{" "}
-                </Link>
+                {" "}
+                {treatmentRequest}
+                <ArrowDropDownIcon fontSize="small" />{" "}
               </Button>
-            </Tooltip>
+            </Link>
+            {/* </Tooltip> */}
 
             {/* servicec menu in lg screen = SML */}
             <Menu
@@ -242,63 +274,73 @@ function ResponsiveAppBar() {
               open={openSML}
               onClose={handleCloseSML}
             >
-              <Link to={"/consulting"}>
-                <MenuItem onClick={handleCloseSML}>{t(dentistry)}</MenuItem>
+              <Link to={"/dentistry"}>
+                <MenuItem onClick={handleCloseSML}>{dentistry}</MenuItem>
               </Link>
               <Divider />
 
-              <Link to="/initiahdignoisisandtreatment">
-                <MenuItem onClick={handleCloseSML}>
-                  {t(medicine)}
-                </MenuItem>
+              <Link to="/medicine">
+                <MenuItem onClick={handleCloseSML}>{medicine}</MenuItem>
               </Link>
               <Divider />
-              <Link to="/treatment">
-                <MenuItem onClick={handleCloseSML}>{t(comestic)}</MenuItem>
+              <Link to="comestic">
+                <MenuItem onClick={handleCloseSML}>{comestic}</MenuItem>
               </Link>
             </Menu>
-            <Button
-              onClick={() => {}}
-              sx={{
-                my: 2,
-                display: "block",
-                color:"#fff"
-              }}
-            >
-              <Link to="/politics&privacy">{t("privacy & politics")}</Link>
-            </Button>
+            <Link to="/privacypolicy">
+              <Button
+                onClick={() => {}}
+                sx={{
+                  my: 2,
+                  display: "block",
+                 
+                }}
+              >
+                {privacyPolicy}
+              </Button>
+            </Link>
+            <Link to="/faq">
+              <Button
+                sx={{
+                  my: 2,
+                  display: "block",
+                
+                }}
+              >
+                {FAQ}
+              </Button>
+            </Link>
 
-            <Button
-              sx={{
-                my: 2,
-                display: "block",
-                color:"#fff"
-              }}
-            >
-              <Link to="/faq">{t("FAQ")}</Link>
-            </Button>
-
-            <Button
-              onClick={() => {}}
-              sx={{
-                my: 2,
-                display: "block",
-                color:"#fff"
-              }}
-            >
-              <Link to="/contactus">{t("contact us")}</Link>
-            </Button>
+            <Link to="/contactus">
+              <Button
+                onClick={() => {}}
+                sx={{
+                  my: 2,
+                  display: "block",
+                  
+                }}
+              >
+                {contactUs}
+              </Button>
+            </Link>
           </Box>
 
-          <ButtonGroup variant="contained" aria-label="Basic button group" spacing={2}>
-            <Button color="secondary" onClick={() => dispatch(asyncToggleTheme())}>
+          <ButtonGroup
+            variant="contained"
+            aria-label="Basic button group"
+            spacing={2}
+          >
+            <Button
+              color="secondary"
+              onClick={() => dispatch(asyncToggleTheme())}
+            >
               {darkMode ? <BrightnessHighIcon /> : <Brightness3Icon />}
             </Button>
             <Button onClick={toggleLanguage} color="secondary">
               {" "}
               {i18n.language === "en" ? "العربية" : "English"}
             </Button>
-            <Button color="secondary" >
+            <Button color="secondary">
               <Link to="/signup">{t("sign up")}</Link>
             </Button>
           </ButtonGroup>

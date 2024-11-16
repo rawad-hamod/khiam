@@ -14,7 +14,7 @@ i18n
     debug: true,
     returnObject:true,
    
-    fallbackLng: localStorage.getItem("i18nextLng")===null?"en":localStorage.getItem("i18nextLng"),
+    fallbackLng: localStorage.getItem("i18nextLng")===null?"ar":localStorage.getItem("i18nextLng"),
     detection:{
 order:["queryString","cookie"],
 cashe:["cookie","htmlTag","localStorage"],

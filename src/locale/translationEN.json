@@ -1,19 +1,18 @@
 {
-"home": "home",
+  "navbar":
+  {
+    "home": "home",
+  "dentistry":"dentistry",
+  "medicine":"medicine",
+  "comestic":"Cosmetic medicine/surgical/non-surgical",
+  "askAmedicalQuestion":"Ask a medical Question",
+  "treatmentRequest":"Treatment Request",
+  "contactUs":"contact us",
+  "FAQ":"FAQ",
+  "privacyPolicy":"privacy policy"
+  },
 "name":"name",
 "services": "services",
-"Ask a medical question":"Ask a medical Question",
-
-"contact us":"contact us",
-"FAQ":"FAQ",
-"privacy & politics":"privacy & politics",
-"consulting":"consulting",
-"initial diagnoises and treatment":"initial diagnoises and treatment",
-"Have you ever thought about medical tourism?":"Have you ever thought about medical tourism?",
-"save your time and your money":"save your time and your money",
-"Do you need an integrated support team to answer all your inquiries and develop your treatment plans?":"Do you need an integrated support team to answer all your inquiries and develop your treatment plans?",
-"Have you had a specific medical diagnosis for your teeth and you need to come to Syria and receive treatment?":"Have you had a specific medical diagnosis for your teeth and you need to come to Syria and receive treatment?",
-"Do you have an idea about the advantages of dentistry in Syria?":"Do you have an idea about the advantages of dentistry in Syria?",
 "Medical Tourism in Syria:":"Medical Tourism in Syria:",
 "medical tourism section description":"The good reputation of the Syrian doctor, and the huge difference in the costs of medical services, made Syria a destination for Arab and foreign tourists. 5% of the tourists coming to Syria aim for treatment, 40% of them are Arabs and 60% are foreigners.",
 "Professionalism":"Professionalism",
@@ -41,20 +40,21 @@
 "Please fill the form below :":"Please fill the form below :",
 "about us":"about us",
 "about us description":"Al-Khayyam is an electronic medical platform specialized in providing health care services on line and facilitating access to it by patients and users. We believe in the importance of technology in improving the quality of health care and saving time and effort for patients. Try to be a link between patients and medical providers, focusing on providing a safe and comfortable user experience.",
-"servicespage":{"step1":"step 1","step2":"step 2","step3":"step 3","step4":"step 4"},
-"navbar":{
-  "dentistry":"dentistry",
-  "medicine":"medicine",
-  "comestic":"Cosmetic medicine/surgical/non-surgical"
+"servicespage":{
+  "step1":"step 1",
+  "step2":"step 2",
+  "step3":"step 3",
+  "step4":"step 4",
+   "title":"our services",
+   "introduction":"We offer you and your family varient health services that range from remote consultation to diagnosis and suggesting treatment plans. You can also communicate with the most skilled doctors, come and receive treatment. Click on the type of service you need and read about the full details",
+   "tab1":"Ask a medical question",
+   "tab2":"Treatment Request"
 },
 "hero":{
   "heroTitle":"save your time, money and health",
   "heroDetails":"ask amedicl question.. book to communicate with a doctor and more...",
   "heroButton":"more details"
 },
-
-
-
 "contactus":{
   "title":"Contact Khiam:",
   "desc":"We are here to help you, and answer any question you might have. We look forward to hearing from you",
@@ -65,5 +65,84 @@
   "send":"send",
   "firstnameExample":"Example: Ahmed",
   "lastnameExample":"Example: Alkhiam"
+},
+"askAmedicalQuestion":{
+  "title":"Ask a medical question",
+  "personalInformation":"personal information:",
+  "firstName":"first name",
+  "lastName":"lastName",
+  "email":"email",
+  "phoneNumber":"phone number",
+  "sex":"sex",
+  "male":"male",
+  "female":"female",
+  "birthDate":"birth of date",
+  "medicalQuest":"medical question",
+  "medicalField":"medical field",
+  "dentistry":"dentistry",
+  "medicine":"medicine",
+  "comestic":"Cosmetic medicine/surgical/non-surgical",
+  "yourQues":"your question",
+  "yourQuesEx":"example:What are the causes of stomach pain after eating?",
+  "quesDetails":"Explain symptoms and health problems, seek medical advice",
+  "send":"send"
+},
+"dentistry":{
+  "generalInformation":"General information",
+  "typeOfTreatment":"Type of treatment",
+  "teethPhotos":"Teeth photos",
+  "dpr":"Dental Panoramic Radiograph(DPR)",
+  "smoker":"are you a smoker?",
+  "yes":"yes",
+  "no":"no",
+  "chronicDeseaseBoolean":"Are there any chronic diseases?",
+  "chronicDiseaseMention":"Mention Your Chronic Disease",
+  "DPRtitle":"Upload your DPR as sample:",
+  "uploadYours":"upload yours",
+  "dentalImplant":"dental implant",
+  "jawSurgery":"jaw surgery",
+  "hollywoodSmile":"Hollywood Smile",
+  "veneer":"Veneer",
+  "dentalTreatment":"dental treatment",
+  "treatmentTitle":"treatment title",
+  "treatmentExample":"'example:Three dental implants in the upper jaw'",
+  "traetmentDescription":"tretment description",
+  "treatmentDetails":"Describe the symptoms in the patient's language if any",
+  "frontTeeth":"front teeth",
+  "upperJaw":"upper jaw",
+  "lowerJaw":"lower jaw",
+  "next":"next",
+  "back":"back",
+  "submit":"submit"
+},
+"serviceDetail":{
+  "service1Introduction":"In the Ask a Medical Question service, we will answer any inquiry in any medical field for free, and direct you to all the procedures and examinations necessary to monitor your health condition.",
+  "service2Introduction":"If you wish to come and recieve treatment, we will study your health condition in more detail based on a set of information you provide by filling out our medical form, we can provide the initial diagnoises that is closest to your condition, in addition to provide you with treatment plan from A to Z",
+  "advantegesTitle":"Some of what you get from this service",
+  "adv11":"A detailed answer to all your questions related to a medical condition.",
+  "adv12":"Clear information about your condition and illness.",
+  "adv13":"Explanatory information about your symptoms and how they relate to your disease.",
+  "adv14":"Ways and means of preventing complications as much as possible.",
+  "adv15":"Habits and methods to prevent the consequences of your illness as much as possible",
+  "adv16":"Improve the quality of your life and make it healthier",
+  "adv21":"Schedule a suitable appointment to communicate remotely with our doctors.",
+  "adv22":"initial diagnosis to your health condition",
+  "adv23":"Treatment options with approximate duration and cost.",
+  "getService":"How to get this service?",
+  "getServiceIntroduction":"To use this service and have the full information, completly on line follow the steps:"
+},
+"askMedicalQuestionSteps":{
+  "step1Title":"Sign Up or Log In ",
+  "step1Description":"You must have an account in Khiam and log in to it. If you are logged in, go to the next step, or create an account on the site by clicking this button. ",
+  "step1Button":"SignUp",
+  "step2Title":"click on Ask a medical Question ",
+  "step2Description":"You  have to click to the menu icon from the nav bar on tab ask a mediacal question, or immediately click this button ",
+  "step2Button":"Ask a medical Question",
+  "step3Title":"Fill The Fields",
+  "step3Description":"Fill the fields in your information and describe how can we help you, then click to submit button",
+  "step4Title":"Wait for us",
+  "step4Description": "Khiam will contact you during 24-48 hours and provide you with details, this service completely free",
+  "step4Button":"Apply Now"
+  
 }
   }

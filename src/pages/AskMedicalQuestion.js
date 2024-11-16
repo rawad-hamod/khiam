@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Container,
   Paper,
@@ -10,12 +11,32 @@ import {
   Select,
   MenuItem,
   FormLabel,
+  Divider,
 } from "@mui/material";
-import { useTheme } from "@emotion/react";
 
 export default function AskMedicalQuestion() {
-    const theme=useTheme();
-    console.log(theme.palette.background)
+  const { t } = useTranslation();
+  const {
+    title,
+    personalInformation,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    sex,
+    male,
+    female,
+    birthDate,
+    medicalQuest,
+    medicalField,
+    dentistry,
+    medicine,
+    comestic,
+    yourQues,
+    yourQuesEx,
+    quesDetails,
+    send
+  } = t("askAmedicalQuestion");
   const [medicalQuestion, setMedicalQuestion] = useState({
     firstName: "",
     lastName: "",
@@ -38,21 +59,30 @@ export default function AskMedicalQuestion() {
         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper
             variant="outlined"
-            sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 }}}
+            sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
           >
-            <Typography component="h1" variant="h4" align="center">
-              Ask A medical Question:
+            <Typography
+              component="h1"
+              variant="h4"
+              align="center"
+              color="secondary"
+            >
+              {title}
             </Typography>
 
             <Box sx={{ my: 3 }}>
-              <Typography variant="h6" gutterBottom>
-                personal information:
+              <Typography
+                variant="h6"
+                sx={{ textDcoration: "underLine" }}
+                gutterBottom
+              >
+                <i>{personalInformation}</i>
               </Typography>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
-                    label="First name:"
+                    label={firstName}
                     name="firstName"
                     value={medicalQuestion.firstName}
                     onChange={(e) =>
@@ -68,7 +98,7 @@ export default function AskMedicalQuestion() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
-                    label="Last name:"
+                    label={lastName}
                     name="lastName"
                     value={medicalQuestion.lastName}
                     onChange={(e) =>
@@ -84,7 +114,7 @@ export default function AskMedicalQuestion() {
                 <Grid item xs={12}>
                   <TextField
                     required
-                    label="email:"
+                    label={email}
                     name="email"
                     value={medicalQuestion.email.trim()}
                     onChange={(e) =>
@@ -100,14 +130,14 @@ export default function AskMedicalQuestion() {
                 <Grid item xs={12}>
                   <TextField
                     required
-                    label="phone number:"
-                    placeholder="example:09********"
+                    label={phoneNumber}
+                    placeholder="09********"
                     name="phoneNumber"
                     value={medicalQuestion.phoneNumber.trim()}
                     onChange={(e) =>
                       setMedicalQuestion({
                         ...medicalQuestion,
-                        email: e.target.value,
+                        phoneNumber: e.target.value,
                       })
                     }
                     fullWidth
@@ -115,36 +145,29 @@ export default function AskMedicalQuestion() {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <FormLabel sx={{ textAlign: "left" }}>
-                    sex:
-                  </FormLabel>
+                  <FormLabel sx={{ textAlign: "left" }}>{sex}</FormLabel>
                   <Select
                     required
-                    
                     fullWidth
                     variant="filled"
                     name="sex"
                     helpText=" "
-                    onSelect={(e) =>
+                    onChange={(e) =>
                       setMedicalQuestion({
                         ...medicalQuestion,
                         sex: e.target.value,
                       })
                     }
                   >
-                    <MenuItem value="male">male</MenuItem>
-                    <MenuItem value="female">female</MenuItem>
-                    
+                    <MenuItem value="male">{male}</MenuItem>
+                    <MenuItem value="female">{female}</MenuItem>
                   </Select>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                <FormLabel sx={{ textAlign: "left" }}>
-                    birth of date:
-                  </FormLabel>
+                  <FormLabel sx={{ textAlign: "left" }}>{birthDate}</FormLabel>
                   <TextField
-                  type="date"
+                    type="date"
                     required
-                   
                     name="birthDate"
                     value={medicalQuestion.birthDate}
                     onChange={(e) =>
@@ -159,15 +182,15 @@ export default function AskMedicalQuestion() {
                 </Grid>
               </Grid>
             </Box>
-
+            <Divider />
             <Box sx={{ my: 3 }}>
               <Typography variant="h6" gutterBottom>
-                Medical Question:
+                <i> {medicalQuest}</i>
               </Typography>
               <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <FormLabel sx={{ textAlign: "left" }}>
-                    Medical Field:
+                    {medicalField}
                   </FormLabel>
                   <Select
                     required
@@ -182,18 +205,18 @@ export default function AskMedicalQuestion() {
                       })
                     }
                   >
-                    <MenuItem value="Dentistry">Dentistry</MenuItem>
-                    <MenuItem value="Medicine">Medicine</MenuItem>
+                    <MenuItem value="Dentistry">{dentistry}</MenuItem>
+                    <MenuItem value="Medicine">{medicine}</MenuItem>
                     <MenuItem value="Surgical or non-surgical plastic surgery">
-                      Surgical or non-surgical plastic surgery
+                      {comestic}
                     </MenuItem>
                   </Select>
                 </Grid>
-                <Grid item xs={12} >
+                <Grid item xs={12}>
                   <TextField
                     required
-                    label="Your question:"
-                    placeholder="example:What are the causes of stomach pain?"
+                    label={yourQues}
+                    placeholder={yourQuesEx}
                     name="question"
                     value={medicalQuestion.shortQuestion}
                     onChange={(e) =>
@@ -209,7 +232,7 @@ export default function AskMedicalQuestion() {
                 <Grid item xs={12}>
                   <TextField
                     required
-                    placeholder="Explain symptoms and health problems, seek medical advice"
+                    placeholder={quesDetails}
                     name="question"
                     value={medicalQuestion.details}
                     onChange={(e) =>
@@ -222,7 +245,6 @@ export default function AskMedicalQuestion() {
                     variant="filled"
                     multiline
                     rows={5}
-                    
                   />
                 </Grid>
               </Grid>
@@ -235,7 +257,7 @@ export default function AskMedicalQuestion() {
               fullWidth
               color="secondary"
             >
-              send
+              {send}
             </Button>
           </Paper>
         </Container>

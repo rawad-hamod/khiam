@@ -56,7 +56,7 @@ export default function Hero(props) {
         <Typography variant="h2" sx={{backgroundColor:"rgba(0,0,0,0.2)"}}>{heroTitle}</Typography>
         <Typography variant="h5">{heroDetails}</Typography>
 
-        <Link to="/"><Button variant="contained" color="secondary" size="large" sx={{fontSize:"large"}}>{heroButton}</Button></Link>
+        <Link to="/services"><Button variant="contained" color="secondary" size="large" sx={{fontSize:"large"}} >{heroButton}</Button></Link>
       </Box>
     </Paper>
   );

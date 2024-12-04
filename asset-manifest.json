@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/khiam/static/css/main.fee73915.css",
+    "main.js": "/khiam/static/js/main.277a88d7.js",
+    "static/media/frontTeeth.jpg": "/khiam/static/media/frontTeeth.61079ec2fffefcbe92b9.jpg",
+    "static/media/qualified.jpg": "/khiam/static/media/qualified.552582a7109c650da160.jpg",
+    "static/media/save-money.jpg": "/khiam/static/media/save-money.28ca86f82a40f69cbb76.jpg",
+    "static/media/navMenu.jpg": "/khiam/static/media/navMenu.a9d1ee587f1c2d739d97.jpg",
+    "static/media/perfect-ux.jpg": "/khiam/static/media/perfect-ux.1ec8b216e6b22d4a9b62.jpg",
+    "static/media/save-time.jpg": "/khiam/static/media/save-time.316653d10f7762b05f7a.jpg",
+    "static/media/fillTheform.jpg": "/khiam/static/media/fillTheform.f75aa531901154fbae71.jpg",
+    "static/media/satisfying-results.jpg": "/khiam/static/media/satisfying-results.d06887e0e702d0ed6760.jpg",
+    "static/media/save-time-money.jpg": "/khiam/static/media/save-time-money.e6f6635613dead2391c9.jpg",
+    "static/media/lowerJaw.jpg": "/khiam/static/media/lowerJaw.46a3ee51f9b75b216699.jpg",
+    "static/media/signUp.png": "/khiam/static/media/signUp.325505f26aa4b8dafc24.png",
+    "static/media/slick.svg": "/khiam/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/khiam/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/khiam/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/khiam/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/khiam/index.html",
+    "static/media/getFetch.cjs": "/khiam/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
+    "main.fee73915.css.map": "/khiam/static/css/main.fee73915.css.map",
+    "main.277a88d7.js.map": "/khiam/static/js/main.277a88d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fee73915.css",
+    "static/js/main.277a88d7.js"
+  ]
+}

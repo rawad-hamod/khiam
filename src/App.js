@@ -2,28 +2,20 @@ import { useSelector } from "react-redux";
 import { useState, useMemo, Fragment } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import HomePage from "./pages/homepage/HomePage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  HashRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/auth/SignUp";
 import SignIn from "./pages/auth/SignIn";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
-
 import "./App.css";
-
 import { CssBaseline } from "@mui/material";
 import { blueGrey, green, grey, orange } from "@mui/material/colors";
-
-import FAQ from "./pages/info/faq";
-import PoliticsAndPrivacy from "./pages/info/politicsandprivacy";
 import ContactUs from "./pages/info/contactus";
 import Footer from "./components/Footer";
-
 import AskMedicalQuestion from "./pages/AskMedicalQuestion";
 import Comestic from "./pages/services/Comestic";
 import Dentistry from "./pages/services/Dentistry";
 import Medicine from "./pages/services/Medicine";
 import Services from "./pages/homepage/Services";
-import AboutUs from "./pages/homepage/AboutUs";
-
 const getDesignTokens = (mode) => ({
   typography: {
     h2: {
@@ -121,7 +113,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
 
@@ -140,8 +132,8 @@ function App() {
               <Route path="/dentistry" element={<Dentistry />} />
               <Route path="/medicine" element={<Medicine />} />
               <Route path="/comestic" element={<Comestic />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/privacypolicy" element={<PoliticsAndPrivacy />} />
+             
+              
               <Route path="/contactus" element={<ContactUs />} />
               <Route path="/services" element={<Services />} />
              
@@ -149,7 +141,7 @@ function App() {
             <Footer />
           </Fragment>
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

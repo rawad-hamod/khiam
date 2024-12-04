@@ -36,8 +36,7 @@ function ResponsiveAppBar() {
     comestic,
     askAmedicalQuestion,
     contactUs,
-    FAQ,
-    privacyPolicy,
+    
     treatmentRequest,
   } = t("navbar");
   // toggle language
@@ -88,7 +87,7 @@ function ResponsiveAppBar() {
     // localStorage.setItem("i18nextLng",JSON.stringify(i18n.language))
   }, [i18n, i18n.language]);
   return (
-    <AppBar position="fixed" sx={{ height: "70px", top: "0",backgroundColor:"background.default" }} >
+    <AppBar position="fixed" sx={{ height: "70px", top: "0",backgroundColor:"background.default" }} fullWidth >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* the menu icon  */}
@@ -164,23 +163,16 @@ function ResponsiveAppBar() {
                   <MenuItem onClick={handleCloseSMS}>{comestic}</MenuItem>
                 </Link>
               </Menu>
-              <Link to="/politicsprivacy">
-                <MenuItem onClick={handlCloseMMS}>
-                  {privacyPolicy}
-                </MenuItem>
-              </Link>
+              
               <Divider />
-              <Link to="/faq">
-                <MenuItem onClick={handlCloseMMS}>{FAQ}</MenuItem>
-              </Link>
-              <Divider />
+              
               <Link to="/contactus">
                 <MenuItem onClick={handlCloseMMS}>{contactUs}</MenuItem>
               </Link>
             </Menu>
           </Box>
           <Typography
-            variant="h3"
+            variant="h4"
             noWrap
             component="p"
             href="/"
@@ -287,29 +279,8 @@ function ResponsiveAppBar() {
                 <MenuItem onClick={handleCloseSML}>{comestic}</MenuItem>
               </Link>
             </Menu>
-            <Link to="/privacypolicy">
-              <Button
-                onClick={() => {}}
-                sx={{
-                  my: 2,
-                  display: "block",
-                 
-                }}
-              >
-                {privacyPolicy}
-              </Button>
-            </Link>
-            <Link to="/faq">
-              <Button
-                sx={{
-                  my: 2,
-                  display: "block",
-                
-                }}
-              >
-                {FAQ}
-              </Button>
-            </Link>
+            
+            
 
             <Link to="/contactus">
               <Button
@@ -331,16 +302,17 @@ function ResponsiveAppBar() {
             spacing={2}
           >
             <Button
+            size="small"
               color="secondary"
               onClick={() => dispatch(asyncToggleTheme())}
             >
               {darkMode ? <BrightnessHighIcon /> : <Brightness3Icon />}
             </Button>
-            <Button onClick={toggleLanguage} color="secondary">
+            <Button onClick={toggleLanguage} color="secondary" size="small">
               {" "}
               {i18n.language === "en" ? "العربية" : "English"}
             </Button>
-            <Button color="secondary">
+            <Button color="secondary" size="small">
               <Link to="/signup">{t("sign up")}</Link>
             </Button>
           </ButtonGroup>

@@ -1,14 +1,11 @@
 import React from "react";
 import { Avatar, Box, Divider, Grid, Typography } from "@mui/material";
-import { useTheme } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTooth } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";;
+import { useTranslation } from "react-i18next";
 function MedicalTourismSYR(props) {
-  // theme
-  const theme = useTheme();
-   // translation
-   const { t } = useTranslation();
+  // translation
+  const { t } = useTranslation();
   return (
     <>
       <Box sx={{}}>
@@ -19,7 +16,6 @@ function MedicalTourismSYR(props) {
             alignItems: "center",
             justifyContent: "center",
             padding: "50px",
-          
           }}
         >
           <Grid item xs={12}>
@@ -29,9 +25,11 @@ function MedicalTourismSYR(props) {
             >
               {t("Medical Tourism in Syria:")}
             </Typography>
-            <Divider sx={{width:'20%', margin:"10px auto",textAlign:"center" }}/>
+            <Divider
+              sx={{ width: "20%", margin: "10px auto", textAlign: "center" }}
+            />
           </Grid>
-          
+
           <Grid
             item
             xs={12}
@@ -55,7 +53,7 @@ function MedicalTourismSYR(props) {
             </Avatar>
           </Grid>
           <Grid xs={12} md={6}>
-            <Typography variant="h4" sx={{alignText:"justify",}}>
+            <Typography variant="h6" sx={{ alignText: "justify" }}>
               {t("medical tourism section description")}
             </Typography>
           </Grid>

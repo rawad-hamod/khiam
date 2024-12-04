@@ -26,7 +26,7 @@ export default function AboutUs() {
           sx={{ width: "20%", margin: "10px auto", textAlign: "justify" }}
         />
 
-        <Typography variant="h4" center>
+        <Typography variant="h6" center>
           {t("about us description")}
         </Typography>
       </Box>

@@ -11,29 +11,29 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        padding: "10px",
-        marginTop: "3rem",
+       
+        marginTop:"3rem",
         bottom: "0",
         right: "0",
         backgroundColor: "backGround.default",
-        borderTop: "1px solid grey",
-        boxShadow: "7px 5px 5px 5px grey"
+ width:"100%",
+        boxShadow: "7px 5px 5px 5px grey",
+        position:"relative"
       }}
     >
-      <Grid container alignItems="center" justify="center" spacing={2}>
+      <Grid container  spacing={2}>
         <Grid
           item
-          direction="column"
           xs={12}
           md={4}
           sx={{
-           
+            display:"flex",
             margin: "0rem auto",
-           
-          
-            
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center"
           }}
-          className="centerFlexColumn"
+          
         >
           <Typography
             variant="h3"
@@ -41,8 +41,6 @@ export default function Footer() {
             component="p"
             href="/"
             sx={{
-              
-
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
@@ -68,21 +66,25 @@ export default function Footer() {
         </Grid>
         <Grid
          item
-           direction="column"
+          
           xs={12}
           md={4}
-          sx={{
-           
-           
-            gap: "1rem",
+       
+            sx={{
+              display:"flex",
+              margin: "0rem auto",
+              flexDirection:"column",
+              alignItems:"center",
+              justifyContent:"center"
+            }}
             
-          }}
-          className="centerFlexColumn"
+        
+         
         >
           <Typography variant="h5"> Important Links:</Typography>
           <List>
             <ListItem>
-              <Link> About Khiam</Link>
+              <Link to="/home"> About Khiam</Link>
             </ListItem>
             <ListItem>
               <Link> Treatment In Syria</Link>
@@ -100,18 +102,19 @@ export default function Footer() {
         </Grid>
         <Grid
           item
-           direction="column"
+          
           xs={12}
           md={4}
           sx={{
-           
-           
-            gap: "1rem",
-            
+            display:"flex",
+            margin: "0rem auto",
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center"
           }}
-          className="centerFlexColumn"
+         
         >
-          <Typography variant="h6"> Our services:</Typography>
+          <Typography variant="h5"> Our services:</Typography>
           <List>
             <ListItem>
               <Link to="/consulting">Consulting</Link>
